@@ -19,8 +19,8 @@ export const PokemonCard = () => {
         <>
             {
                 pokemons.map((pokemon, index) => (
-                    <div className="w-full p-2 lg:w-1/4 md:w-1/2 mb-4 lg:mb-0">
-                        <Card key={pokemon.url}
+                    <div key={pokemon.url} className="w-full p-2 lg:w-1/4 md:w-1/2 mb-4 lg:mb-0">
+                        <Card 
                             className="max-w-sm h-full dark:text-white dark:bg-neutral-700"
                             imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
                             imgSrc={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${page * 8 - (7 - index)}.svg`}
@@ -45,8 +45,8 @@ export const PokemonCard = () => {
                 ))
             }
              <Button className='mr-4'
-                disabled={isLoading}
-                onClick={() => dispatch(getPokemons(page-1))}
+                disabled={ page===1}
+                onClick={() => dispatch(getPokemons(page,1))}
             >
                 Back
             </Button>
