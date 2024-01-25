@@ -1,22 +1,33 @@
 import { pokemonApi } from '../../api/pokeApi';
 import { setPokemons, startLoadingPokemons } from './pokemonSlice';
 
+import pokemonJSON from '../../api/pokemons.json';
+
+const pokemons = pokemonJSON.filter(
+    (value, index, self) => self.findIndex(obj => obj.name === value.name) === index
+);
+
+export const getPokemons = (page = 1, pageSize = 8, type = 0) => {
 
 
-export const getPokemons = ( page = 0, back=0 ) => {
-    return async( dispatch, getState ) => {
-        dispatch( startLoadingPokemons() );
+    return (dispatch, getState) => {
+
+        dispatch(startLoadingPokemons());
         if (page < 0) {
-            // Hacer algo en caso de página no válida, como no realizar ninguna solicitud
             console.log("Página no válida");
             return;
         }
-        page = page-back*2
-        // TODO: realizar petición http
-        // const resp = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=10&offset=${ page * 10 }`);
-        // const data = await resp.json();
-        const { data } = await pokemonApi.get(`/pokemon?limit=8&offset=${ page * 8 }`);
+        const startIndex = (page - 1) * pageSize;
+        const endIndex = pageSize*page;
 
-        dispatch( setPokemons({ pokemons: data.results, page: page + 1 }) );
+        dispatch(setPokemons({ pokemons: pokemons.slice(0, endIndex), page: page + 1, type: type }));
+
+
     }
-}
+
+
+
+
+
+
+} 
