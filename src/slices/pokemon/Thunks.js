@@ -13,6 +13,7 @@ export const getPokemons = (page = 1, pageSize = 8, type = 0) => {
     return (dispatch, getState) => {
 
         dispatch(startLoadingPokemons());
+        
         if (page < 0) {
             console.log("Página no válida");
             return;

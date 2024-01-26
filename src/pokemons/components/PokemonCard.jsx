@@ -1,33 +1,41 @@
 import { Button, Card } from 'flowbite-react';
 import { getPokemons } from '../../slices/pokemon/Thunks';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import './pokemoncard.css'
+import useNearScreen from '../../hooks/useNearScreen';
+import debounce from 'just-debounce-it';
 export const PokemonCard = () => {
 
     const dispatch = useDispatch();
     const { isLoading, pokemons = [], page, type } = useSelector(state => state.pokemons);
+    const externalRef = useRef()
+    const { isNearScreen } = useNearScreen({ externalRef: isLoading ? null : externalRef , once:false})
 
-
+   
+    console.log(isNearScreen);
 
     useEffect(() => {
         dispatch(getPokemons());
     }, [])
 
-    const handleScroll = () => {
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight ) {
-            dispatch(getPokemons(page + 1));
+    // const handleNextPage =()=>{
+    //     console.log('nextPage')
+    //     // dispatch(getPokemons(page));
+    // }
+    const debouncedHandleNextPage= useCallback(debounce(
+       ()=> dispatch(getPokemons(page)),200
+    ),[page])
+
+    useEffect(()=>{
+        
+        if(isNearScreen){
+          
+            debouncedHandleNextPage()
+            
+            
         }
-    };
-
-    useEffect(() => {
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+    },[debouncedHandleNextPage, isNearScreen])
 
     return (
 
@@ -65,9 +73,9 @@ export const PokemonCard = () => {
 
             }
         </div>
-            <Button className='mr-4'
+            {/* <Button className='mr-4'
                 disabled={page === 1}
-                onClick={() => dispatch(getPokemons(page+ 1))}
+                onClick={() => dispatch(getPokemons(page + 1))}
             >
                 Back
             </Button>
@@ -78,7 +86,11 @@ export const PokemonCard = () => {
                 onClick={() => dispatch(getPokemons(page))}
             >
                 Next
-            </Button>
+            </Button> */}
+
+            <div id="visor" ref={externalRef}>
+
+            </div>
         </>
 
 
