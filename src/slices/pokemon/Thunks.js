@@ -1,34 +1,58 @@
-import { pokemonApi } from '../../api/pokeApi';
-import { setPokemons, startLoadingPokemons } from './pokemonSlice';
+import {
+  setPokemonData,
+  setPokemons,
+  startLoadingPokemons,
+} from "./pokemonSlice";
 
-import pokemonJSON from '../../api/pokemons.json';
+import pokemonJSON from "../../api/pokemons.json";
 
 const pokemons = pokemonJSON.filter(
-    (value, index, self) => self.findIndex(obj => obj.name === value.name) === index
+  (value, index, self) =>
+    self.findIndex((obj) => obj.name === value.name) === index
 );
 
-export const getPokemons = (page = 1, pageSize = 8, type = 0) => {
+//hacer el filter por encima y que solo recoja este aqui
+//splitear en dos una sera la que recoja la info con el filter y seateara el array de pokemons
+// la otra se encargara simplemente de hacer scroll infinito sobre esos pokemons
 
+export const getPokemonsData = (query = "") => {
+  let pokemonsFiltered = pokemons;
 
-    return (dispatch, getState) => {
+  return async (dispatch, getState) => {
+    dispatch(startLoadingPokemons());
 
-        dispatch(startLoadingPokemons());
-        
-        if (page < 0) {
-            console.log("Página no válida");
-            return;
-        }
-        const startIndex = (page - 1) * pageSize;
-        const endIndex = pageSize*page;
+    pokemonsFiltered = pokemonsFiltered.filter((pokemon) =>
+      pokemon.name.toLowerCase().includes(query.toLowerCase())
+    );
+    dispatch(setPokemons({ pokemonsSroll: pokemonsFiltered }));
+  };
+};
 
-        dispatch(setPokemons({ pokemons: pokemons.slice(0, endIndex), page: page + 1, type: type }));
+export const getPokemonsScroll = (page = 1, pageSize = 8) => {
+  return async (dispatch, getState) => {
+    dispatch(startLoadingPokemons());
+    if (page < 0) {
+      console.log("Página no válida");
+      return;
+    }
+    const currentState = getState();
+    const { pokemonsSroll } = currentState.pokemons;
+    const endIndex = pageSize * page;
+    console.log(page);
 
-
+    if (
+      (pokemonsSroll.length <= 8 && page > 1) ||
+      (pokemonsSroll.length > 8 && pokemonsSroll.length / 8 < page)
+    ) {
+      console.log(pokemonsSroll);
+      return;
     }
 
-
-
-
-
-
-} 
+    dispatch(
+      setPokemonData({
+        pokemons: pokemonsSroll.slice(0, endIndex),
+        page: page + 1,
+      })
+    );
+  };
+};

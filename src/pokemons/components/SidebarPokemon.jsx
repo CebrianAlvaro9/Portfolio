@@ -4,10 +4,12 @@ import { getPokemons } from '../../slices/pokemon/Thunks';
 import { Sidebar } from 'flowbite-react';
 import {  HiChartPie } from 'react-icons/hi';
 import { useDispatch } from 'react-redux';
-import { setPokemons, setType } from '../../slices/pokemon/pokemonSlice';
+
 
 export const SidebarPokemon =()=> {
   const dispatch = useDispatch();
+
+ 
 
 
   return (

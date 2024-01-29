@@ -11,10 +11,6 @@ export const App = () => {
             <Navbar1/>
             <Outlet/>
             </div>
-   
-
-       
-  
       </Flowbite>
            
      
