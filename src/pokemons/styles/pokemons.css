@@ -1,0 +1,102 @@
+/* Example CSS for custom Pokémon types */
+.custom-normal {
+  background-color: #808080; /* gray */
+  color: #ffffff; /* white */
+}
+
+.custom-fire {
+  background-color: #ff0000; /* red */
+  color: #ffffff; /* white */
+}
+
+.custom-water {
+  background-color: #0080ff; /* blue */
+  color: #ffffff; /* white */
+}
+
+.custom-grass {
+  background-color: #00cc00; /* green */
+  color: #ffffff; /* white */
+}
+
+.custom-electric {
+  background-color: #ffff00; /* yellow */
+  color: #000000; /* black */
+}
+
+.custom-ice {
+  background-color: #99ccff; /* light blue */
+  color: #ffffff; /* white */
+}
+
+.custom-fighting {
+  background-color: #ff0000; /* red */
+  color: #ffffff; /* white */
+}
+
+.custom-poison {
+  background-color: #800080; /* purple */
+  color: #ffffff; /* white */
+}
+
+.custom-ground {
+  background: linear-gradient(
+    to right,
+    #ffd700,
+    #8b5a2b
+  ); /* gradient from gold to brown */
+  color: #ffffff; /* white */
+}
+
+.custom-flying {
+  background: linear-gradient(
+    to right,
+    #3182ce,
+    #718096
+  ); /* gradient from blue to gray */
+  color: #ffffff; /* white */
+}
+
+.custom-psychic {
+  background-color: #800080; /* purple */
+  color: #ffffff; /* white */
+}
+
+.custom-bug {
+  background-color: #008000; /* dark green */
+  color: #ffffff; /* white */
+}
+
+.custom-rock {
+  background-color: #a9a9a9; /* dark gray */
+  color: #ffffff; /* white */
+}
+
+.custom-ghost {
+  background-color: #4b0082; /* indigo */
+  color: #ffffff; /* white */
+}
+
+.custom-dark {
+  background-color: #333333; /* dark gray */
+  color: #ffffff; /* white */
+}
+
+.custom-steel {
+  background-color: #808080; /* gray */
+  color: #ffffff; /* white */
+}
+
+.custom-dragon {
+  background: linear-gradient(
+    to right,
+    #9f7aea,
+    #6b46c1
+  ); /* gradient from purple to indigo */
+  color: #ffffff; /* white */
+}
+
+.custom-fairy {
+  background-color: #ff69b4; /* pink */
+  color: #ffffff; /* white */
+}

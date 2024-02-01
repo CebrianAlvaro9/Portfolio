@@ -2,3 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* .bg-gradient-ground {
+  background: linear-gradient(to right, #f6e05e, #8b5a2b);
+}
+
+.bg-gradient-flying {
+  background: linear-gradient(to right, #3182ce, #718096);
+}
+
+.bg-gradient-dragon {
+  background: linear-gradient(to right, #9f7aea, #6b46c1);
+} */

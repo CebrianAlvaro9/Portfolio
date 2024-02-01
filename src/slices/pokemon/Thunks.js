@@ -24,6 +24,7 @@ export const getPokemonsData = (query = "") => {
     pokemonsFiltered = pokemonsFiltered.filter((pokemon) =>
       pokemon.name.toLowerCase().includes(query.toLowerCase())
     );
+
     dispatch(setPokemons({ pokemonsSroll: pokemonsFiltered }));
   };
 };

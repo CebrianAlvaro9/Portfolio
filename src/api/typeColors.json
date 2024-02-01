@@ -1,0 +1,20 @@
+{
+  "normal": "custom-normal",
+  "fire": "custom-fire",
+  "water": "custom-water",
+  "grass": "custom-grass",
+  "electric": "custom-electric",
+  "ice": "custom-ice",
+  "fighting": "custom-fighting",
+  "poison": "custom-poison",
+  "ground": "custom-ground",
+  "flying": "custom-flying",
+  "psychic": "custom-psychic",
+  "bug": "custom-bug",
+  "rock": "custom-rock",
+  "ghost": "custom-ghost",
+  "dark": "custom-dark",
+  "steel": "custom-steel",
+  "dragon": "custom-dragon",
+  "fairy": "custom-fairy"
+}
