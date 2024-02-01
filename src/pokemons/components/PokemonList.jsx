@@ -32,10 +32,8 @@ export const PokemonList = () => {
         //this will activate the infinite scroll
         if (isNearScreen) {
             debouncedHandleNextPage();
-            console.log(query)
         }//this will set the inicial state in ordert to only show the first page
         if (query.length >= 0 && page == 1) {
-            console.log('dentrooo');
             debouncedHandleNextPage();
         }
     }, [debouncedHandleNextPage, isNearScreen, query, page]);
@@ -48,8 +46,6 @@ export const PokemonList = () => {
                 ))
                 :
                 <h1 className='dark:text-white text-xl'>Sorry, no Pokémon match your search criteria.</h1>
-
-
             }
 
             <div id="visor" ref={ externalRef } />

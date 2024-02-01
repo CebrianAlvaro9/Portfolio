@@ -2,17 +2,21 @@ import { Card } from 'flowbite-react';
 import { useSelector } from 'react-redux';
 
 import typeColors from '../../api/typeColors.json'
+import { DialogInfo } from './DialogInfo';
+import { useState } from 'react';
+
 export const PokemonCards = ({ pokemon }) => {
-
-    const colors = typeColors
-
+    const colors = typeColors;
     const { pokemons = [] } = useSelector(state => state.pokemons);
+    const [openModal, setOpenModal] = useState(false);
+
     return (
-        <div className={ 'w-full p-2 h-full lg:w-1/4 md:w-1/2' }>
+        <div className={ 'w-full p-2 h-full  xl:w-1/5 md:w-1/3 lg:w-1/4' }>
             <Card
-                className="dark:text-white dark:bg-neutral-700 "
+                className="dark:text-white dark:bg-neutral-700 transition ease-in-out hover:ring hover:ring-zinc-400 hover:-translate-y-1 hover:scale-110"
                 imgAlt={ pokemon.ThumbnailImage }
                 imgSrc={ pokemon.ThumbnailImage }
+                onClick={ () => setOpenModal(true) }
             >
                 <div>
                     <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
@@ -26,20 +30,10 @@ export const PokemonCards = ({ pokemon }) => {
                             </span>
                         )) }
                     </div>
-                    <span className=''></span>
+                    <span className=""></span>
                 </div>
-
-                {/* <div className="flex items-center justify-between mt-4">
-                    <a
-                        href="#"
-                        className="w-4/6 rounded-lg flex items-center justify-center bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-4 focus:ring-purple-400 text-white px-5 py-2.5 text-center text-sm font-medium dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-400"
-                    >
-                        Capture
-                        <img className='w-1/6 ml-4' src="https://cdn.icon-icons.com/icons2/2248/PNG/512/pokeball_icon_136305.png" alt="" />
-                    </a>
-                </div> */}
-
             </Card>
+            <DialogInfo pokemon={ pokemon } show={ openModal } onClose={ () => setOpenModal(false) } />
         </div>
     );
-}
+};

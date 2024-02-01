@@ -39,16 +39,13 @@ export const getPokemonsScroll = (page = 1, pageSize = 8) => {
     const currentState = getState();
     const { pokemonsSroll } = currentState.pokemons;
     const endIndex = pageSize * page;
-    console.log(page);
 
     if (
       (pokemonsSroll.length <= 8 && page > 1) ||
       (pokemonsSroll.length > 8 && pokemonsSroll.length / 8 < page)
     ) {
-      console.log(pokemonsSroll);
       return;
     }
-
     dispatch(
       setPokemonData({
         pokemons: pokemonsSroll.slice(0, endIndex),

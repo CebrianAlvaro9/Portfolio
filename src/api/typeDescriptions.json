@@ -1,0 +1,20 @@
+{
+  "normal": "The Normal type is a well-balanced type, with no particular strengths or weaknesses. It's often found in a variety of Pokémon.",
+  "fire": "The Fire type is known for its association with flames and heat. Fire-type Pokémon often have powerful and destructive fire-based moves.",
+  "water": "Water-type Pokémon are associated with bodies of water. They are often strong swimmers and have moves related to water.",
+  "grass": "Grass-type Pokémon are closely tied to plants and nature. They often have moves related to plants, flowers, and the environment.",
+  "electric": "Electric-type Pokémon are known for their electric abilities. They can generate and manipulate electricity for powerful electric attacks.",
+  "ice": "Ice-type Pokémon are associated with ice and cold. They often have moves that involve freezing their opponents or creating ice-based attacks.",
+  "fighting": "Fighting-type Pokémon excel in physical combat. They are skilled in various martial arts and close-quarters combat.",
+  "poison": "Poison-type Pokémon are known for their toxic abilities. They often have moves that can poison their opponents over time.",
+  "ground": "Ground-type Pokémon are associated with the earth and terrain. They often have moves related to the ground and earthquakes.",
+  "flying": "Flying-type Pokémon are skilled in aerial maneuvers. They often have moves related to flying and air-based attacks.",
+  "psychic": "Psychic-type Pokémon possess strong mental abilities. They can use telepathy, move objects with their minds, and have powerful psychic attacks.",
+  "bug": "Bug-type Pokémon are associated with insects. They often have moves that involve bug-based attacks and techniques.",
+  "rock": "Rock-type Pokémon are known for their sturdy and durable nature. They often have moves related to rocks and minerals.",
+  "ghost": "Ghost-type Pokémon are associated with the spirit world. They often have moves related to ghosts, shadows, and the supernatural.",
+  "dark": "Dark-type Pokémon are known for their cunning and mysterious nature. They often have moves related to darkness and deceit.",
+  "steel": "Steel-type Pokémon are characterized by their metallic bodies. They often have moves related to steel and are known for their resilience.",
+  "dragon": "Dragon-type Pokémon are powerful and mythical creatures. They often have moves related to dragons and are known for their strength.",
+  "fairy": "Fairy-type Pokémon are associated with magic and enchantment. They often have moves related to fairy tales and mystical powers."
+}
