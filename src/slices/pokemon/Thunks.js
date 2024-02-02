@@ -15,15 +15,23 @@ const pokemons = pokemonJSON.filter(
 //splitear en dos una sera la que recoja la info con el filter y seateara el array de pokemons
 // la otra se encargara simplemente de hacer scroll infinito sobre esos pokemons
 
-export const getPokemonsData = (query = "") => {
+export const getPokemonsData = (query = "", filter) => {
   let pokemonsFiltered = pokemons;
 
   return async (dispatch, getState) => {
     dispatch(startLoadingPokemons());
+    const param = filter.toLowerCase();
 
-    pokemonsFiltered = pokemonsFiltered.filter((pokemon) =>
-      pokemon.name.toLowerCase().includes(query.toLowerCase())
-    );
+    if (filter == 'Name') {
+      pokemonsFiltered = pokemonsFiltered.filter((pokemon) =>
+        pokemon.name.toLowerCase().includes(query.toLowerCase())
+      );
+    } else {
+      pokemonsFiltered = pokemonsFiltered.filter((pokemon) =>
+        pokemon[param].some((item) => item.toLowerCase().includes(query.toLowerCase()))
+      );
+    }
+
 
     dispatch(setPokemons({ pokemonsSroll: pokemonsFiltered }));
   };

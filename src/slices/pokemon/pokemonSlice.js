@@ -9,6 +9,7 @@ export const pokemonSlice = createSlice({
     pokemons: [],
     pokemonsSroll: [],
     isLoading: false,
+    filter: 'Name'
   },
   reducers: {
     startLoadingPokemons: (state /* action */) => {
@@ -29,6 +30,8 @@ export const pokemonSlice = createSlice({
     setQuery: (state, action) => {
       state.query = action.payload.query;
       state.page = action.payload.page;
+      state.filter = action.payload.filter;
+
     },
   },
 });
