@@ -1,8 +1,9 @@
 // Router.jsx
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import { App } from "../App";
-import { PokemonPage } from "../pokemons/pages/PokemonPage";
+
 import { CVPage } from "../CV/pages/CVPage";
+import { PokemonPage } from "../pokemons/pages/PokemonPage";
 
 const router = createBrowserRouter(
     [
