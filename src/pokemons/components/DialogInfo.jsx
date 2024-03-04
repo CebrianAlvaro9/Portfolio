@@ -66,9 +66,9 @@ export const DialogInfo = ({ pokemon, show, onClose }) => {
                 </div>
             </Modal.Body>
             <Modal.Footer className='dark:bg-neutral-800 '>
-                <Button className='dark:bg-neutral-900 bg-zinc-500 ' onClick={ onClose }>
+                {/* <Button className='dark:bg-neutral-900 bg-zinc-500 ' onClick={ onClose }>
                     Capture
-                </Button>
+                </Button> */}
             </Modal.Footer>
         </Modal>
     );
